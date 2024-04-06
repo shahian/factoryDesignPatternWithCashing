@@ -13,11 +13,16 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/api")
 public class TestController {
+private final ProductFactory productFactory;
+
+    public TestController(ProductFactory productFactory) {
+        this.productFactory = productFactory;
+    }
 
     @GetMapping("/v1/test-factory-pattern-with-cashing")
     public ResponseEntity<?> getProduct() {
-        Product productA = ProductFactory.getProduct("A");
-        Product productB = ProductFactory.getProduct("B");
+        Product productA = productFactory.getProduct("A");
+        Product productB = productFactory.getProduct("B");
         Objects.requireNonNull(productA, "Product A cannot be null").operation();
         Objects.requireNonNull(productB, "Product B cannot be null").operation();
         return new ResponseEntity<>(HttpStatus.OK);
