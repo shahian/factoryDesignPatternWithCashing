@@ -46,7 +46,7 @@ To run the application locally:
 
 - Java 17 or higher
 - Maven
-- 
+  
 ## Contact
 
 For any questions or feedback, feel free to reach out:
